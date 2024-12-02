@@ -1,0 +1,24 @@
+(lang dune 3.16)
+
+(name AoC_2024)
+
+(generate_opam_files true)
+
+(source
+ (github username/reponame))
+
+(authors "Matthieu Rondeau")
+
+(maintainers "None")
+
+(license None)
+
+(package
+ (name AoC_2024)
+ (synopsis "Solving Advent of Code 2024 problems with Ocaml")
+ (description "This project is to prove Ocaml can be useful")
+ (depends ocaml dune)
+ (tags
+  (topics "to describe" your project)))
+
+; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

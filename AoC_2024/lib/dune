@@ -1,0 +1,5 @@
+(library
+ (name AoC_2024)
+ (libraries base stdio str)
+ (inline_tests)
+ (preprocess (pps ppx_expect)))
