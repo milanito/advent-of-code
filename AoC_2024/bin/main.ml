@@ -29,6 +29,7 @@ let () =
   let (part1, part2) = match !day with
   |  1 -> AoC_2024.Day_01.(part1, part2)
   |  2 -> AoC_2024.Day_02.(part1, part2)
+  |  3 -> AoC_2024.Day_03.(part1, part2)
   |  _ -> raise (Invalid_day "AoC day is not specified or is invalid, please make sure the -day parameter is provided and is between 1 and 25")
   in
   let open Stdio in
