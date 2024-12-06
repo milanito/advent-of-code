@@ -32,6 +32,7 @@ let () =
   |  3 -> AoC_2024.Day_03.(part1, part2)
   |  4 -> AoC_2024.Day_04.(part1, part2)
   |  5 -> AoC_2024.Day_05.(part1, part2)
+  |  6 -> AoC_2024.Day_06.(part1, part2)
   |  _ -> raise (Invalid_day "AoC day is not specified or is invalid, please make sure the -day parameter is provided and is between 1 and 25")
   in
   let open Stdio in
