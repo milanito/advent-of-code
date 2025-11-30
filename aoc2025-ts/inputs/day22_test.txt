@@ -1,0 +1,2 @@
+# day22 test input
+# Replace this with the sample input from Advent of Code Day 22 2017

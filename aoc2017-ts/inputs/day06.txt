@@ -1,0 +1,2 @@
+# day06 real input
+# Put your puzzle input here
