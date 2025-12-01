@@ -7,13 +7,73 @@
  * export default function solve(input: string): string { ... }
  */
 
+
 export default function solve(input: string): string {
   const lines = input.trim().split(/\r?\n/).filter(Boolean);
   // Replace with your solution logic
-  const part1 = lines.length;
-  const part2 = lines.length;
+  const part1 = solvePart1(lines);
+  const part2 = solvePart2(lines);
   return `Part 1: ${part1}
 Part 2: ${part2}`;
+}
+
+const solvePart1 = (lines: string[]): number => {
+  let count = 0
+
+  lines.reduce((acc, el) => {
+    const num = parseInt(el.substring(1))
+
+    if (el[0] === 'L') {
+      acc = (acc - num) % 100
+    } else {
+      acc = (acc + num) % 100
+    }
+
+    if (acc === 0) {
+      count += 1
+    }
+
+    return acc
+  }, 50);
+
+  return count
+}
+
+const solvePart2 = (lines: string[]): number => {
+  let count = 0
+
+  lines.reduce((acc, el) => {
+    const num = parseInt(el.substring(1))
+    const isPos = acc > 0
+
+    const div = ~~(Math.abs(num) / 100)
+    const rest = Math.abs(num) % 100
+    count += div
+
+    if (el[0] === 'L') {
+      acc = (acc - rest) % 100
+      
+      if (isPos && acc <= 0) {
+        count += 1
+      }
+    } else {
+      acc = (acc + rest)
+
+      if (acc > 99) {
+        count += 1
+      }
+
+      acc %= 100
+    }
+
+    if (acc === 0) {
+      count += 1
+    }
+
+    return acc
+  }, 50);
+
+  return count
 }
 
 if (require.main === module) {
