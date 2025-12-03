@@ -16,27 +16,17 @@ export default function solve(input: string): string {
 Part 2: ${part2}`;
 }
 
-const part1Solver = (lines: string[]): number =>
-  lines
-  .map(line => line.split('').map(item => parseInt(item)))
-  .reduce((acc, line) => {
-    const res = getMax(line.slice(0, line.length - 1))
-    const sec = getMax(line.slice(res.index + 1))
-
-    return acc + parseInt(`${res.max}${sec.max}`)
-  }, 0)
-
-const part2Solver = (lines: string[]): number =>
+const solver = (num:number) => (lines: string[]): number =>
   lines
   .map(line => line.split('').map(item => parseInt(item)))
   .reduce((acc, line, index) => {
     let count = 0
     let result = []
-    while (count < line.length && result.length < 12) {
-      const res = getMax(line.slice(count, line.length - 12 + result.length + 1))
+    while (count < line.length && result.length < num) {
+      const res = getMax(line.slice(count, line.length - num + result.length + 1))
       result.push(res.max)
 
-      if (line.length - res.index === 12 - result.length) {
+      if (line.length - res.index === num - result.length) {
         count = line.length
       } else {
         count += res.index + 1
@@ -44,7 +34,7 @@ const part2Solver = (lines: string[]): number =>
     }
 
 
-    if (result.length < 12) {
+    if (result.length < num) {
       result = result.concat(line.slice(line.length - 1 - result.length))
     }
 
@@ -61,6 +51,9 @@ const getMax = (list: number[]) =>
 
     return acc
   }, {max: 0, index: -1})
+
+const part1Solver = solver(2)
+const part2Solver = solver(12)
 
 if (require.main === module) {
   const fs = require("fs");
