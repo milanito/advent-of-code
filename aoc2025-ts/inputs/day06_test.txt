@@ -1,2 +1,4 @@
-# day06 test input
-# Replace this with the sample input from Advent of Code Day 6 2017
+123 328  51 64 
+ 45 64  387 23 
+  6 98  215 314
+*   +   *   +  
